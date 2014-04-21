@@ -1,44 +1,49 @@
+package sml;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
+import sml.DivInstruction;
 import sml.Instruction;
 import sml.Machine;
-import sml.OutInstruction;
 import sml.Registers;
 
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 
-public class OutInstructionTest {
+public class DivInstructionTest {
 
-	private String label = "L2";
-	private int op1 = 2;
-
-	private Instruction out;
-
+    private int op1 = 2;
+	private int op2 = 3;
+	
+	private Instruction div;
+	
 	@Mock 
 	private Machine machine;
 	@Mock 
 	private Registers registers;
 
+	
 	@Before
 	public void setUp() throws Exception {
 		initMocks(this);
-		this.out = new OutInstruction(label, op1);
+        int result = 1;
+        this.div = new DivInstruction("L2", result, op1, op2);
 	}
 
 	@Test
 	public void testExecute() {
 		int val1 = 8;
+		int val2 = 2;
+		
 		when(machine.getRegisters()).thenReturn(registers);
 		when(registers.getRegister(op1)).thenReturn(val1);
-
-		out.execute(machine);
-
-		verify(registers).getRegister(op1);
-
+		when(registers.getRegister(op2)).thenReturn(val2);
+		
+		div.execute(machine);
+		
+		verify(registers).setRegister(1, val1 / val2);	
 	}
 
 }

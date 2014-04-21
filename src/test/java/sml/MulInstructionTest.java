@@ -1,35 +1,34 @@
+package sml;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
-import sml.DivInstruction;
 import sml.Instruction;
 import sml.Machine;
+import sml.MulInstruction;
 import sml.Registers;
 
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 
-public class DivInstructionTest {
-	
-	private String label = "L2";
-	private int result = 1;
-	private int op1 = 2;
+public class MulInstructionTest {
+
+    private int op1 = 2;
 	private int op2 = 3;
 	
-	private Instruction div;
+	private Instruction mul;
 	
 	@Mock 
 	private Machine machine;
 	@Mock 
 	private Registers registers;
 
-	
 	@Before
 	public void setUp() throws Exception {
 		initMocks(this);
-		this.div = new DivInstruction(label, result, op1, op2);
+        int result = 1;
+        this.mul = new MulInstruction("L2", result, op1, op2);
 	}
 
 	@Test
@@ -41,9 +40,9 @@ public class DivInstructionTest {
 		when(registers.getRegister(op1)).thenReturn(val1);
 		when(registers.getRegister(op2)).thenReturn(val2);
 		
-		div.execute(machine);
+		mul.execute(machine);
 		
-		verify(registers).setRegister(1, val1 / val2);	
+		verify(registers).setRegister(1, val1 * val2);	
 	}
 
 }

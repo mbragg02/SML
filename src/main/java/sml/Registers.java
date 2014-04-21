@@ -33,7 +33,7 @@ public class Registers {
 	// Precondition: 0 <= i <= NUMBEROFREGISTERS
 
 	public void setRegister(int i, int v) {
-		if (i <= NUMBEROFREGISTERS || i >= 0) {
+		if (i <= NUMBEROFREGISTERS && i >= 0) {
 			
 			registers[i] = v;
 			

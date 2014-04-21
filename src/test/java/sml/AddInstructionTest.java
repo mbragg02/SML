@@ -1,3 +1,5 @@
+package sml;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -12,12 +14,7 @@ import static org.mockito.MockitoAnnotations.initMocks;
 
 public class AddInstructionTest {
 
-	private String label = "L1";
-	private int result = 1;
-	private int op1 = 2;
-	private int op2 = 3;
-	
-	private int val1 = 6;
+    private int val1 = 6;
 	private int val2 = 8;
 	
 	private Instruction add;
@@ -30,7 +27,11 @@ public class AddInstructionTest {
 	@Before
 	public void testAddInstruction() {
 		initMocks(this);
-		this.add = new AddInstruction(label, result, op1, op2);
+        String label = "L1";
+        int result = 1;
+        int op1 = 2;
+        int op2 = 3;
+        this.add = new AddInstruction(label, result, op1, op2);
 		
 		when(machine.getRegisters()).thenReturn(registers);
 		when(registers.getRegister(op1)).thenReturn(val1);
