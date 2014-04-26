@@ -13,13 +13,13 @@ import lombok.Data;
 @Data
 public class Registers {
 
-	private final static int NUMBEROFREGISTERS = 32;
+	private final static int NUMBER_OF_REGISTERS = 32;
 	private int registers[];
 
 	// Constructor: an instance whose registers are set to 0
 
 	{
-		registers = new int[NUMBEROFREGISTERS];
+		registers = new int[NUMBER_OF_REGISTERS];
 	}
 	
 	public Registers() {
@@ -30,15 +30,15 @@ public class Registers {
 	}
 
 	// Set register i to v.
-	// Precondition: 0 <= i <= NUMBEROFREGISTERS
+	// Precondition: 0 <= i <= NUMBER_OF_REGISTERS
 
 	public void setRegister(int i, int v) {
-		if (i <= NUMBEROFREGISTERS && i >= 0) {
+		if (i <= NUMBER_OF_REGISTERS && i >= 0) {
 			
 			registers[i] = v;
 			
 		} else {
-			throw new IllegalArgumentException("Register must be between 0 and " + NUMBEROFREGISTERS);
+			throw new IllegalArgumentException("Register must be between 0 and " + NUMBER_OF_REGISTERS);
 		}
 		
 	}

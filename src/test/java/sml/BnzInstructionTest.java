@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Matchers.anyInt;
 import static org.mockito.Mockito.*;
 import static org.mockito.MockitoAnnotations.initMocks;
 

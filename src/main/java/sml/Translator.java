@@ -38,10 +38,10 @@ public class Translator {
 	}
 
 	// translate the small program in the file into lab (the labels) and
-	// prog (the program)
+	// program (the program)
 	// return "no errors were detected"
 	@SuppressWarnings("resource")
-	public boolean readAndTranslate(Labels lab, ArrayList<Instruction> prog) {
+	public boolean readAndTranslate(Labels lab, ArrayList<Instruction> program) {
 		Scanner sc; // Scanner attached to the file chosen by the user
 		try {
 			sc = new Scanner(new File(fileName));
@@ -51,8 +51,8 @@ public class Translator {
 		}
 		labels = lab;
 		labels.reset();
-		program = prog;
-		program.clear();
+		this.program = program;
+		this.program.clear();
 
 		try {
 			line = sc.nextLine();
@@ -69,7 +69,7 @@ public class Translator {
 				Instruction ins = getInstruction(label);
 				if (ins != null) {
 					labels.addLabel(label);
-					program.add(ins);
+					this.program.add(ins);
 				}
 			}
 

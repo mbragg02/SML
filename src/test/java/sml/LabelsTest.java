@@ -10,20 +10,23 @@ import static org.junit.Assert.assertEquals;
 public class LabelsTest {
 
     private Labels labels;
+    private String someLabel;
 
     @Before
     public void setUp() throws Exception {
+        someLabel = "someLabel";
         labels = new Labels();
 
     }
 
     @Test
     public void testAddLabel() throws Exception {
-       int labelsSize = labels.addLabel("some label");
+
+       int labelsSize = labels.addLabel(someLabel);
 
         assertEquals(labelsSize , 0);
 
-        labelsSize = labels.addLabel("some label");
+        labelsSize = labels.addLabel(someLabel);
 
         assertEquals(labelsSize , 1);
     }
@@ -37,31 +40,32 @@ public class LabelsTest {
 
     @Test
     public void testIndexOf() {
-        labels.addLabel("somelabel");
-        int indexOfLabel = labels.indexOf("somelabel");
+
+        labels.addLabel(someLabel);
+        int indexOfLabel = labels.indexOf(someLabel);
 
         assertEquals(indexOfLabel, 0);
     }
 
     @Test
     public void testToString() throws Exception {
-        labels.addLabel("somelabel");
-        labels.addLabel("somelabel");
+        labels.addLabel(someLabel);
+        labels.addLabel(someLabel);
 
         String result = labels.toString();
-        assertEquals(result, "(somelabel, somelabel)");
+        assertEquals(result, "(someLabel, someLabel)");
     }
 
     @Test
     public void testReset() throws Exception {
-        labels.addLabel("somelabel");
-        int indexOfLabel = labels.indexOf("somelabel");
+        labels.addLabel(someLabel);
+        int indexOfLabel = labels.indexOf(someLabel);
 
         assertEquals(indexOfLabel, 0);
 
         labels.reset();
 
-        int indexOfLabelAgain = labels.indexOf("somelabel");
+        int indexOfLabelAgain = labels.indexOf(someLabel);
 
         assertEquals(indexOfLabelAgain, -1);
 
