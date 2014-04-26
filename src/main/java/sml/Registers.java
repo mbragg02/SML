@@ -32,7 +32,7 @@ public class Registers {
 	// Set register i to v.
 	// Precondition: 0 <= i <= NUMBER_OF_REGISTERS
 
-	public void setRegister(int i, int v) {
+	public void setRegister(int i, int v) throws IllegalArgumentException {
 		if (i <= NUMBER_OF_REGISTERS && i >= 0) {
 			
 			registers[i] = v;

@@ -3,11 +3,8 @@ package sml;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
-import sml.Instruction;
-import sml.Machine;
-import sml.OutInstruction;
-import sml.Registers;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
@@ -39,7 +36,11 @@ public class OutInstructionTest {
 		out.execute(machine);
 
 		verify(registers).getRegister(op1);
-
 	}
+
+    @Test
+    public void testToString() {
+        assertEquals(this.out.toString(), "L2: out 2 to console");
+    }
 
 }

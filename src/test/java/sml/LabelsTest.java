@@ -70,4 +70,6 @@ public class LabelsTest {
         assertEquals(indexOfLabelAgain, -1);
 
     }
+
+
 }

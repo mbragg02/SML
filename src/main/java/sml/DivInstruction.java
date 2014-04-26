@@ -31,7 +31,6 @@ public class DivInstruction extends Instruction {
 		} catch (IllegalArgumentException e) {
 			System.out.println(e.getMessage());
 		}
-		
 	}
 	
 	@Override

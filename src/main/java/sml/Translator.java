@@ -49,7 +49,8 @@ public class Translator {
 			System.out.println("File: IO error to start " + ioE.getMessage());
 			return false;
 		}
-		labels = lab;
+
+        labels = lab;
 		labels.reset();
 		this.program = program;
 		this.program.clear();

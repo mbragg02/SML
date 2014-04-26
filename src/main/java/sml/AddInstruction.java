@@ -31,7 +31,7 @@ public class AddInstruction extends Instruction {
 		try {
 			m.getRegisters().setRegister(result, value1 + value2);
 		} catch (IllegalArgumentException e) {
-			System.out.println(e.getMessage());
+            System.out.println(e.getMessage());
 		}
 	}
 

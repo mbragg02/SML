@@ -3,11 +3,8 @@ package sml;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
-import sml.Instruction;
-import sml.LinInstruction;
-import sml.Machine;
-import sml.Registers;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 import static org.mockito.MockitoAnnotations.initMocks;
 
@@ -36,9 +33,18 @@ public class LinInstructionTest {
 		verify(registers).setRegister(register, value);
 	}
 
+
     @Test
     public void testExecuteWithException() {
         doThrow(new IllegalArgumentException()).when(registers).setRegister(anyInt(), anyInt());
+        lin.execute(machine);
     }
+
+    @Test
+    public void testToString() {
+        assertEquals(this.lin.toString(), "L2: lin register 1 value is 5");
+    }
+
+
 
 }
